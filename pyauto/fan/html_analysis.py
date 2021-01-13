@@ -143,27 +143,27 @@ def html_to_magnet(html_str):
     return magnet_list
 
 
-def write_txt(magnet_list,path='./m1.txt',encoding='utf-8'):
+def write_txt(magnet_list,path='./assets/m1.txt',encoding='utf-8'):
     with open(path,'w',encoding=encoding) as f:
         for m in magnet_list:
             f.write(m)
             f.write('\n')
 
 
-def write_json(fan_info:dict,path='./m1.json',encoding='utf-8'):
+def write_json(fan_info:dict,path='./assets/m1.json',encoding='utf-8'):
     with open(path, 'w', encoding=encoding) as f:
         json.dump(fan_info, f, indent=' '*4)
 
 
-def write_csv(fan_info:pd.DataFrame,path='./m1.csv',encoding='utf-8',override=False):
-    # fan_info.to_csv(path,header=False,index=False)
+def write_csv(fan_info:pd.DataFrame,path='./assets/m1.csv',encoding='utf-8',override=False):
     if override:
+        # fan_info.to_csv(path,header=False,index=False)
         fan_info.to_csv(path, index=False)
     else:
         fan_info.to_csv(find_not_exist_name(path),index=False)
 
 
-def csv_to_txt(path_csv,path_txt='./m1.txt',encoding='utf-8'):
+def csv_to_txt(path_csv,path_txt='./assets/m1.txt',encoding='utf-8'):
     s=read_text(path_csv)
     m=re.findall(r'(magnet:\?xt=urn:btih:[0-9a-fA-F]+&tr=http://open.acgtracker.com:1096/announce)[\s,]',s)
     write_txt(m,path_txt,encoding)
@@ -174,9 +174,9 @@ if __name__ == '__main__':
     start_time = time.time()
     # write_txt(html_to_magnet(read_text(r'D:\360极速浏览器下载\bdrip - 爱恋动漫BT下载.html')))
     # write_csv(html_to_csv(read_text(r'D:\360极速浏览器下载\爱恋动漫BT下载.html')))
-    write_csv(html_to_csv(read_text(r"D:\360极速浏览器下载\漫猫动漫BT下载.html")))
+
     # write_csv(html_to_csv(read_text(r"D:\360极速浏览器下载\bd 1080p - 漫猫动漫BT下载.html")))
+    # write_csv(html_to_csv(read_text(r"D:\360极速浏览器下载\漫猫动漫BT下载.html")))
 
-
-    # csv_to_txt('./m1 (1).csv')
+    # csv_to_txt('./assets/m1 (1).csv')
     print(f"运行时间: {time.time() - start_time} s")
