@@ -10,3 +10,9 @@ PCI 自动化工作
 * 自动爬取链接(受网络环境影响)
 * 自动健康打卡
 * 图形界面
+
+## 注意事项
+
+git clone ...(url) ...(path)
+clone过来的目录记得到.git/config里面把worktree = ...(path)给删了
+
