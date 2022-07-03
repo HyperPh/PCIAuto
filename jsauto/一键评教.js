@@ -1,0 +1,1 @@
+javascript:var checkbox_list = document.querySelectorAll("form.ant-form.ant-form-horizontal > div > div > div > div:nth-child(2) > div > div > div > span > div > div:nth-child(5) > label > span.ant-radio > input");for(var c of checkbox_list){c.click();}document.querySelector("form.ant-form.ant-form-horizontal > div > div:nth-last-child(-n+1) > button").click();
